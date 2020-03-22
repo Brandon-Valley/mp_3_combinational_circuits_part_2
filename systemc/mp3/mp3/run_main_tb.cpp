@@ -6,7 +6,7 @@
 int sc_main(int argc, char* argv[])
 {
     full_adder__tb();
-    //
+    
     return 0;
 }
 

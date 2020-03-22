@@ -10,17 +10,26 @@ using namespace std;
 SC_MODULE(full_adder__behavior) 
 {
     //  Define IO Ports
-    sc_in  <sc_lv<2>> i_code;
-    sc_out <sc_lv<4>> o_code;
+    sc_in  <bool> i_a ;
+    sc_in  <bool> i_b ;
+    sc_in  <bool> i_ci;
+    sc_out <bool> o_co;
+    sc_out <bool> o_s ;
+    
 
 
     // Architecture Statement - Similar to Process Statement
     void p1()
     {
-        if      (i_code.read() == "00") o_code = "1110";
-        else if (i_code.read() == "01") o_code = "1101";
-        else if (i_code.read() == "10") o_code = "1011";
-        else                            o_code = "0111";
+        //if      (i_code.read() == "00") o_code = "1110";
+        //else if (i_code.read() == "01") o_code = "1101";
+        //else if (i_code.read() == "10") o_code = "1011";
+        //else                            o_code = "0111";
+        
+        o_co = '1';
+        o_s  = '0';
+
+
     }
 
 
@@ -30,8 +39,9 @@ SC_MODULE(full_adder__behavior)
         SC_METHOD(p1);
 
         //  Input Sensitivity List
-        sensitive << i_code
-                  << o_code
+        sensitive << i_a 
+                  << i_b 
+                  << i_ci
                   ;
     }
 };
