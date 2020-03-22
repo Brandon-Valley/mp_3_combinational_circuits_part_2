@@ -149,6 +149,8 @@
     <ClInclude Include="full_adder__tb.h" />
     <ClInclude Include="half_adder.h" />
     <ClInclude Include="system_c_utils.h" />
+    <ClInclude Include="unsigned_calc.h" />
+    <ClInclude Include="unsigned_calc__tb.h" />
     <ClInclude Include="vector_print.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

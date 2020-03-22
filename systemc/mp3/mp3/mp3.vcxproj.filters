@@ -35,5 +35,11 @@
     <ClInclude Include="half_adder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="unsigned_calc__tb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="unsigned_calc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
