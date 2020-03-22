@@ -34,8 +34,8 @@ void full_adder__tb()
     //=============================//
     //  Select Which Model to Test
     //=============================//
-    //full_adder__equation DUT("full_adder.h");
-    full_adder__behavior DUT("full_adder.h");
+    full_adder__equation DUT("full_adder.h");
+    //full_adder__behavior DUT("full_adder.h");
 
 
     //=============================//
@@ -78,8 +78,8 @@ void full_adder__tb()
         //  Set Inputs      
         //=============================//
         i_a  = sv[0];
-        i_b  = sv[0];
-        i_ci = sv[0];
+        i_b  = sv[1];
+        i_ci = sv[2];
 
 
 

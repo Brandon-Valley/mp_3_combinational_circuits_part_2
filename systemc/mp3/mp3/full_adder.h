@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-SC_MODULE(full_adder__behavior) 
+SC_MODULE(full_adder__equation) 
 {
     //  Define IO Ports
     sc_in  <bool> i_a ;
@@ -26,15 +26,18 @@ SC_MODULE(full_adder__behavior)
         //else if (i_code.read() == "10") o_code = "1011";
         //else                            o_code = "0111";
         
-        o_co = '1';
-        o_s  = '0';
+        //o_co = 1;
+        //o_s  = 0;
+
+        o_s.write((i_a.read() ^ i_b.read()) ^ i_ci.read());
+        o_co.write((i_a.read() & i_b.read()) | ((i_a.read() ^ i_b.read()) & i_ci.read()));
 
 
     }
 
 
     // Constructor
-    SC_CTOR(full_adder__behavior) 
+    SC_CTOR(full_adder__equation) 
     {
         SC_METHOD(p1);
 

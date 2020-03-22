@@ -1,5 +1,3 @@
 ﻿  run_main_tb.cpp
   Unknown compiler version - please run the configure tests and report the results
-C:\Users\Brandon\Documents\CpE_5220_Digital_Systems_Modeling\mp_3_combinational_circuits_part_2\hdl\systemc\mp3\mp3\full_adder.h(29,1): warning C4305: 'argument': truncation from 'char' to 'const bool'
-C:\Users\Brandon\Documents\CpE_5220_Digital_Systems_Modeling\mp_3_combinational_circuits_part_2\hdl\systemc\mp3\mp3\full_adder.h(30,1): warning C4305: 'argument': truncation from 'char' to 'const bool'
   mp3.vcxproj -> C:\Users\Brandon\Documents\CpE_5220_Digital_Systems_Modeling\mp_3_combinational_circuits_part_2\hdl\systemc\mp3\Debug\mp3.exe
