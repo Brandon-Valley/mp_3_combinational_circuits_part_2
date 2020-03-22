@@ -27,7 +27,7 @@ SC_MODULE(half_adder)
 
 
     // Constructor
-    SC_CTOR(half_adder__equation) 
+    SC_CTOR(half_adder) 
     {
         SC_METHOD(p1);
 

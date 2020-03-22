@@ -86,6 +86,7 @@ SC_MODULE(full_adder__behavior)
 ////////////////////////////////////////////////
 //  Component Model - With Half Adders
 ////////////////////////////////////////////////
+#include "half_adder.h"
 SC_MODULE(full_adder__cmpnt) 
 {
     //  Define IO Ports
@@ -96,30 +97,23 @@ SC_MODULE(full_adder__cmpnt)
     sc_out <bool> o_s ;
 
 
-    // Architecture Statement - Similar to Process Statement
-    void p1()
-    {
-        if ( ! i_a && ! i_b && ! i_ci )  {  o_s = 0;  o_co = 0;  }
-        if ( ! i_a && ! i_b &&   i_ci )  {  o_s = 1;  o_co = 0;  }
-        if ( ! i_a &&   i_b && ! i_ci )  {  o_s = 1;  o_co = 0;  }
-        if ( ! i_a &&   i_b &&   i_ci )  {  o_s = 0;  o_co = 1;  }
-        if (   i_a && ! i_b && ! i_ci )  {  o_s = 1;  o_co = 0;  }
-        if (   i_a && ! i_b &&   i_ci )  {  o_s = 0;  o_co = 1;  }
-        if (   i_a &&   i_b && ! i_ci )  {  o_s = 0;  o_co = 1;  }
-        if (   i_a &&   i_b &&   i_ci )  {  o_s = 1;  o_co = 1;  }
-    }
+    //  Component Instances
+    half_adder ha_1;
+    half_adder ha_2;
 
+    //  Internal Signals
+    sc_signal <bool> ha_1_s;
+    sc_signal <bool> ha_1_co;
+    sc_signal <bool> ha_2_co;
 
     // Constructor
-    SC_CTOR(full_adder__cmpnt) 
+    SC_CTOR(full_adder__cmpnt) : 
+                                ha_1("G1"),
+                                ha_2("G2")
     {
-        SC_METHOD(p1);
-
-        //  Input Sensitivity List
-        sensitive << i_a 
-                  << i_b 
-                  << i_ci
-                  ;
+        ha_1(i_a     , i_b    , ha_1_co, ha_1_s);
+        ha_2(ha_1_s  , i_ci   , ha_2_co, o_s );
+        o_co = ha_2_co || ha_1_co;
     }
 };
 #endif
