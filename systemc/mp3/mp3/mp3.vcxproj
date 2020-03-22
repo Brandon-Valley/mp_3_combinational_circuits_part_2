@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClInclude Include="full_adder.h" />
     <ClInclude Include="full_adder__tb.h" />
+    <ClInclude Include="half_adder.h" />
     <ClInclude Include="system_c_utils.h" />
     <ClInclude Include="vector_print.h" />
   </ItemGroup>

@@ -32,5 +32,8 @@
     <ClInclude Include="full_adder__tb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="half_adder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
