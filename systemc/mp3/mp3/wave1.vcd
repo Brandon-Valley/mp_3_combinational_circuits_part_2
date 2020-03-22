@@ -1,5 +1,5 @@
 $date
-     Mar 22, 2020       16:00:14
+     Mar 22, 2020       16:13:23
 $end
 
 $version
@@ -23,14 +23,30 @@ All initial values are dumped below at time 0 sec = 0 timescale units.
 $end
 
 $dumpvars
-b0 aaaaa
-b0 aaaab
-b0 aaaac
-b110 aaaad
-$end
-
-#10000
 b1111 aaaaa
 b1111 aaaab
 b1111 aaaac
+b10010110 aaaad
+$end
+
+#10000
+b0 aaaab
+b11000011 aaaad
+
+#20000
+b0 aaaaa
+b0 aaaac
+b0 aaaad
+
+#30000
+b1 aaaaa
+b10 aaaab
+b11 aaaac
+b10011 aaaad
+
+#40000
+b0 aaaaa
+b0 aaaab
+b0 aaaac
+b0 aaaad
 

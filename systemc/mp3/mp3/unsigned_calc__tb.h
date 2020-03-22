@@ -86,17 +86,35 @@ void unsigned_calc__tb()
     //}
 
 
-        i_au  = 0;
-        i_bu  = 0;
-        i_cu  = 0;
 
-        sc_start(10, SC_NS); // run sim for 10 ns
+    i_au.write(15);
+    i_bu.write(15);
+    i_cu.write(15);
+    sc_start(10, SC_NS); // run sim for 10 ns
 
-        i_au  = 15;
-        i_bu  = 15;
-        i_cu  = 15;
+    i_au.write(15);
+    i_bu.write(0);
+    i_cu.write(15);
+    sc_start(10, SC_NS); // run sim for 10 ns
 
-        sc_start(10, SC_NS); // run sim for 10 ns
+    i_au.write(0);
+    i_bu.write(0);
+    i_cu.write(0);
+    sc_start(10, SC_NS); // run sim for 10 ns
+
+    i_au.write(1);
+    i_bu.write(2);
+    i_cu.write(3);
+    sc_start(10, SC_NS); // run sim for 10 ns
+    
+
+
+
+    // last one does not show up in wave
+    i_au.write(0);
+    i_bu.write(0);
+    i_cu.write(0);
+    sc_start(10, SC_NS); // run sim for 10 ns
 
 
 

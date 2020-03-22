@@ -22,10 +22,7 @@ SC_MODULE(unsigned_calc__behavior)
     // Architecture Statement - Similar to Process Statement
     void p1()
     {
-        //o_s.write((i_a.read() ^ i_b.read()) ^ i_ci.read());
-        //o_co.write((i_a.read() & i_b.read()) | ((i_a.read() ^ i_b.read()) & i_ci.read()));
-
-        o_fu = 6;
+        o_fu = ( 7 * i_au.read() ) - ( 3 * i_bu.read() ) + (6 * i_cu.read() );
     }
 
 
