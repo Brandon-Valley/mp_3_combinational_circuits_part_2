@@ -24,29 +24,28 @@ void unsigned_calc__tb()
     //=============================//
     //  Define IO Ports
     //=============================//
-    sc_signal <bool> i_a ;
-    sc_signal <bool> i_b ;
-    sc_signal <bool> i_ci;
-    sc_signal <bool> o_co;
-    sc_signal <bool> o_s ;
+    sc_signal <sc_uint<4>> i_au ;
+    sc_signal <sc_uint<4>> i_bu ;
+    sc_signal <sc_uint<4>> i_cu ;
+    sc_signal <sc_uint<8>> o_fu ;
+    
 
 
     //=============================//
     //  Select Which Model to Test
     //=============================//
     //unsigned_calc__equation DUT("unsigned_calc.h");
-    //unsigned_calc__behavior DUT("unsigned_calc.h");
-    unsigned_calc__cmpnt DUT("unsigned_calc.h");
+    unsigned_calc__behavior DUT("unsigned_calc.h");
+    //unsigned_calc__cmpnt DUT("unsigned_calc.h");
 
 
     //=============================//
     //  Port Map
     //=============================//
-    DUT.i_a (i_a );
-    DUT.i_b (i_b );
-    DUT.i_ci(i_ci);
-    DUT.o_co(o_co);
-    DUT.o_s (o_s );
+    DUT.i_au(i_au);
+    DUT.i_bu(i_bu);
+    DUT.i_cu(i_cu);
+    DUT.o_fu(o_fu);
 
 
     // trace file to look at sim output
@@ -57,11 +56,10 @@ void unsigned_calc__tb()
     //=============================//
     //  Add Signals to Trace File
     //=============================//
-    sc_trace(fp1, i_a ,  "i_a ");
-    sc_trace(fp1, i_b ,  "i_b ");
-    sc_trace(fp1, i_ci,  "i_ci");
-    sc_trace(fp1, o_co,  "o_co");
-    sc_trace(fp1, o_s ,  "o_s ");
+    sc_trace(fp1, i_au,  "i_au");
+    sc_trace(fp1, i_bu,  "i_bu");
+    sc_trace(fp1, i_cu,  "i_cu");
+    sc_trace(fp1, o_fu,  "o_fu");
 
 
     //--------------//
@@ -70,22 +68,38 @@ void unsigned_calc__tb()
     print_sim_header("unsigned_calc");
     double num_combos_to_test = pow(num_bits_needed_in_sim_vec, 2) + 2; // run 2 extra so waveform always ends with all high, then all low
 
-    for (int i = 0; i < pow(3, 2) + 1; i++)
-    {
-        vector<int> sv = int_to_binary_vec__with_rollover(i, num_bits_needed_in_sim_vec); // simulation vector
-        cout << "In unsigned_calc__tb.h, Sim:  i:" << i << "    sv:" << sv << endl;
+    //for (int i = 0; i < pow(3, 2) + 1; i++)
+    //{
+    //    vector<int> sv = int_to_binary_vec__with_rollover(i, num_bits_needed_in_sim_vec); // simulation vector
+    //    cout << "In unsigned_calc__tb.h, Sim:  i:" << i << "    sv:" << sv << endl;
 
-        //=============================//
-        //  Set Inputs      
-        //=============================//
-        i_a  = sv[0];
-        i_b  = sv[1];
-        i_ci = sv[2];
+    //    //=============================//
+    //    //  Set Inputs      
+    //    //=============================//
+    //    i_a  = sv[0];
+    //    i_b  = sv[1];
+    //    i_ci = sv[2];
 
 
+
+    //    sc_start(10, SC_NS); // run sim for 10 ns
+    //}
+
+
+        i_au  = 0;
+        i_bu  = 0;
+        i_cu  = 0;
 
         sc_start(10, SC_NS); // run sim for 10 ns
-    }
+
+        i_au  = 15;
+        i_bu  = 15;
+        i_cu  = 15;
+
+        sc_start(10, SC_NS); // run sim for 10 ns
+
+
+
 
     // last change that wont show on EDA plao_codeground
     sc_close_vcd_trace_file(fp1); // close(fp1)
