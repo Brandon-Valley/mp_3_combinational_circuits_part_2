@@ -34,9 +34,8 @@ void unsigned_calc__tb()
     //=============================//
     //  Select Which Model to Test
     //=============================//
-    //unsigned_calc__equation DUT("unsigned_calc.h");
-    unsigned_calc__behavior DUT("unsigned_calc.h");
-    //unsigned_calc__cmpnt DUT("unsigned_calc.h");
+    //unsigned_calc__behavior DUT("unsigned_calc.h");
+    unsigned_calc__cmpnt DUT("unsigned_calc.h");
 
 
     //=============================//
