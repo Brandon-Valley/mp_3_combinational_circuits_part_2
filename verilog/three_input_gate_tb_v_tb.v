@@ -23,7 +23,8 @@ module three_input_gate_tb_v;
   // three_input_gate_v__always duv (.i_code(i_code), .o_code(o_code), .o_valid(o_valid)); 
   // three_input_gate_v__equation duv (.i_code(i_code), .o_code(o_code), .o_valid(o_valid)); 
   // three_input_gate_v__equation duv (
-  three_input_gate_v__behavior duv (
+  three_input_gate_v__cmpnt       duv (
+  // three_input_gate_v__behavior duv (
                                       .a     (a     ),
                                       .b     (b     ),
                                       .c     (c     ),
