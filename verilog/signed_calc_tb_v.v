@@ -1,9 +1,9 @@
-// -- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__unsigned_calc_v.do
+// -- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__signed_calc_v.do
 
 `timescale 1ms/1ms
 
 // 7X-3Y+6Z
-module unsigned_calc_tb_v;
+module signed_calc_tb_v;
 
 
   // reg  i_a    ;
@@ -22,7 +22,7 @@ module unsigned_calc_tb_v;
   integer i;
   
   // duv port map options:
-  unsigned_calc_v  duv (
+  signed_calc_v  duv (
                             .i_au (i_au ),
                             .i_bu (i_bu ),
                             .i_cu (i_cu ),
