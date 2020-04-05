@@ -1,7 +1,7 @@
 // -- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__unsigned_calc_v.do
 
 ////////////////////////////
- // Equation Model
+//  Behavior Model
 ////////////////////////////
 module unsigned_calc_v
   (
@@ -14,7 +14,9 @@ module unsigned_calc_v
   // assign o_s     = i_a ^ i_b ^ i_carry;
   // assign o_carry = ((i_a ^ i_b) & i_carry) | (i_a & i_b);
   
-  assign o_fu = 00010010;
+  // assign o_fu = 00010010;
+  
+  assign o_fu = (7 * i_au) - (3 * i_bu) + (6 * i_cu);
     
 endmodule 
 

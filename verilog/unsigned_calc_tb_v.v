@@ -2,6 +2,7 @@
 
 `timescale 1ms/1ms
 
+// 7X-3Y+6Z
 module unsigned_calc_tb_v;
 
 
@@ -31,22 +32,22 @@ module unsigned_calc_tb_v;
   //procedure statement
   initial begin
   
-  #1000 i_au  = 0000;
-        i_bu  = 0000;
-        i_cu  = 0000;
+  #1000 i_au  = 4'b0000;
+        i_bu  = 4'b0000;
+        i_cu  = 4'b0000;
         
   
-  #1000 i_au  = 1111;
-        i_bu  = 1111;
-        i_cu  = 1111;
+  #1000 i_au  = 4'b1111;
+        i_bu  = 4'b1111;
+        i_cu  = 4'b1111;
   
-  #1000 i_au  = 1111;
-        i_bu  = 0000;
-        i_cu  = 1111;
+  #1000 i_au  = 4'b1111;
+        i_bu  = 4'b0000;
+        i_cu  = 4'b1111;
   
-  #1000 i_au  = 0001;
-        i_bu  = 0010;
-        i_cu  = 0100;  
+  #1000 i_au  = 4'b0001;
+        i_bu  = 4'b0010;
+        i_cu  = 4'b0100;  
 
 
   // not executed
