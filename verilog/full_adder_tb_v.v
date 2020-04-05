@@ -1,8 +1,8 @@
-// -- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__three_input_gate_v.do
+// -- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__full_adder_v.do
 
 `timescale 1ms/1ms
 
-module three_input_gate_tb_v;
+module full_adder_tb_v;
   
   reg        a     ;
   reg        b     ;
@@ -14,7 +14,7 @@ module three_input_gate_tb_v;
   integer i;
   
   // duv port map options:
-  three_input_gate_v  duv (
+  full_adder_v  duv (
                             .a     (a     ),
                             .b     (b     ),
                             .c     (c     ),
