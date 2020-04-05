@@ -12,10 +12,10 @@ module signed_calc_tb_v;
   // wire o_s    ;
   // wire o_carry;
 
-  reg  unsigned [3:0] i_au ;
-  reg  unsigned [3:0] i_bu ;
-  reg  unsigned [3:0] i_cu ;
-  wire unsigned [7:0] o_fu ;
+  reg  unsigned [3:0] i_as ;
+  reg  unsigned [3:0] i_bs ;
+  reg  unsigned [3:0] i_cs ;
+  wire unsigned [7:0] o_fs ;
 
   
   reg [4:0] d_in = 5'b00000;
@@ -23,48 +23,48 @@ module signed_calc_tb_v;
   
   // duv port map options:
   signed_calc_v  duv (
-                            .i_au (i_au ),
-                            .i_bu (i_bu ),
-                            .i_cu (i_cu ),
-                            .o_fu (o_fu )
+                            .i_as (i_as ),
+                            .i_bs (i_bs ),
+                            .i_cs (i_cs ),
+                            .o_fs (o_fs )
   );
 
   //procedure statement
   initial begin
   
-  #1000 i_au  = 4'b0000;
-        i_bu  = 4'b0000;
-        i_cu  = 4'b0000;
+  #1000 i_as  = 4'b0000;
+        i_bs  = 4'b0000;
+        i_cs  = 4'b0000;
         
   
-  #1000 i_au  = 4'b1111;
-        i_bu  = 4'b1111;
-        i_cu  = 4'b1111;
+  #1000 i_as  = 4'b1111;
+        i_bs  = 4'b1111;
+        i_cs  = 4'b1111;
   
-  #1000 i_au  = 4'b1111;
-        i_bu  = 4'b0000;
-        i_cu  = 4'b1111;
+  #1000 i_as  = 4'b1111;
+        i_bs  = 4'b0000;
+        i_cs  = 4'b1111;
   
-  #1000 i_au  = 4'b0001;
-        i_bu  = 4'b0010;
-        i_cu  = 4'b0100;  
+  #1000 i_as  = 4'b0001;
+        i_bs  = 4'b0010;
+        i_cs  = 4'b0100;  
         
         
         
 
   // not executed
-  #1000 i_au  = 0000;
-        i_bu  = 0000;
-        i_cu  = 0000;        
+  #1000 i_as  = 0000;
+        i_bs  = 0000;
+        i_cs  = 0000;        
 
 
       // //                      |
       // //                      |
       // //                      V
       // for (i = 0 ; i < ( 2 ** 3 ) + 2 ; i = i + 1) begin
-        // #1000 i_au  = d_in[0];
-              // i_bu  = d_in[1];
-              // i_cu  = d_in[2];
+        // #1000 i_as  = d_in[0];
+              // i_bs  = d_in[1];
+              // i_cs  = d_in[2];
       
         // // #1000 i_code = d_in;
         // // #1000 o_code[0] = d_in[0]; o_code[1] = d_in[1]; o_code[2] = d_in[]; i_d = d_in[4];
