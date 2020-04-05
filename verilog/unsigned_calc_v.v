@@ -5,15 +5,16 @@
 ////////////////////////////
 module unsigned_calc_v
   (
-     input  i_a     ,
-     input  i_b     ,
-     input  i_carry ,
-     output o_s     ,
-     output o_carry
+     input  unsigned [3:0] i_au ,
+     input  unsigned [3:0] i_bu ,
+     input  unsigned [3:0] i_cu ,
+     output unsigned [7:0] o_fu 
    );
  
-  assign o_s     = i_a ^ i_b ^ i_carry;
-  assign o_carry = ((i_a ^ i_b) & i_carry) | (i_a & i_b);
+  // assign o_s     = i_a ^ i_b ^ i_carry;
+  // assign o_carry = ((i_a ^ i_b) & i_carry) | (i_a & i_b);
+  
+  assign o_fu = 00010010;
     
 endmodule 
 
