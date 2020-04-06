@@ -4,9 +4,9 @@
 
 module signed_calc_tb_v;
 
-  reg  unsigned [4:0] i_as ;
-  reg  unsigned [4:0] i_bs ;
-  wire unsigned [8:0] o_fs ;
+  reg  signed [4:0] i_as ;
+  reg  signed [4:0] i_bs ;
+  wire signed [8:0] o_fs ;
 
   
   reg [4:0] d_in = 5'b00000;
@@ -22,25 +22,24 @@ module signed_calc_tb_v;
   //procedure statement
   initial begin
   
-  #1000 i_as  = 4'b00000;
-        i_bs  = 4'b00000;
-        
-  
-  #1000 i_as  = 4'b11111;
-        i_bs  = 4'b01111;
-  
-  #1000 i_as  = 4'b1111;
-        i_bs  = 4'b0000;
-  
-  #1000 i_as  = 4'b0001;
-        i_bs  = 4'b0010;
+  #1000 i_as  = 0;//5'b00000;
+        i_bs  = 0;//5'b00000;
+
+  #1000 i_as  = -15;//5'b11111;
+        i_bs  = 15 ;//5'b01111;
+
+  #1000 i_as  = -15;//5'b11111;
+        i_bs  = 0  ;//5'b00000;
+
+  #1000 i_as  = 1;//5'b00010;
+        i_bs  = 3;//5'b00100;
         
         
         
 
   // not executed
-  #1000 i_as  = 4'b0000;
-        i_bs  = 4'b0000;
+  #1000 i_as  = 5'b00000;
+        i_bs  = 5'b00000;
 
 
       // //                      |

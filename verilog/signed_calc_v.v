@@ -9,30 +9,30 @@ module signed_calc_v
   (
      input  signed [4:0] i_as ,
      input  signed [4:0] i_bs ,
-     output signed [8:0] o_fs   //  (15 * 6) = 90   (15 * 11) = 165 = 1 0101 1011   -90 - 165 = -225 = 11 0000 0001
+     output signed [8:0] o_fs   //  (15 * 6) = 90   (15 * 11) = 165 = 1 0101 1011   -90 - 165 = -225 = 1 1111 1111
    );
   
   assign o_fs = (6 * i_as) - (11 * i_bs);
     
 endmodule 
 
-// // 7X-3Y+6Z
+
+
+// // 6X-11Y
 // ////////////////////
  // // Component Model
 // ////////////////////
 // module signed_calc_v
   // (
-     // input  unsigned [3:0] i_as ,
-     // input  unsigned [3:0] i_bs ,
-     // input  unsigned [3:0] i_cs ,
-     // output unsigned [7:0] o_fs 
+     // input  unsigned [4:0] i_as ,
+     // input  unsigned [4:0] i_bs ,
+     // output unsigned [8:0] o_fs 
    // );
   
   
   // // internal 
-  // wire unsigned [6:0] au_i_m = 7 * i_as;
-  // wire unsigned [6:0] bu_i_m = 3 * i_bs;
-  // wire unsigned [6:0] cu_i_m = 6 * i_cs;
+  // wire unsigned [6:0] au_i_m = 6 * i_as;
+  // wire unsigned [6:0] bu_i_m = 11 * i_bs;
   
   // wire unsigned [7:0] sum_ab;
   
