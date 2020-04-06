@@ -7,12 +7,12 @@
 ////////////////////////
 module multiplier_4_bit_unsigned_v
   (
-     input  signed [4:0] i_as ,
-     input  signed [4:0] i_bs ,
-     output signed [8:0] o_fs   //  (15 * 6) = 90   (15 * 11) = 165 = 1 0101 1011   -90 - 165 = -225 = 1 1111 1111
+     input  signed [4:0] i_au ,
+     input  signed [4:0] i_bu ,
+     output signed [8:0] o_fu   //  (15 * 6) = 90   (15 * 11) = 165 = 1 0101 1011   -90 - 165 = -225 = 1 1111 1111
    );
   
-  assign o_fs = (6 * i_as) - (11 * i_bs);
+  assign o_fu = (6 * i_au) - (11 * i_bu);
     
 endmodule 
 
