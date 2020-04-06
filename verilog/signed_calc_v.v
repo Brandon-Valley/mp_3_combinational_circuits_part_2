@@ -1,17 +1,18 @@
 // -- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__signed_calc_v.do
 
+
+// 6X-11Y
 ////////////////////////
  // Behavior Model
 ////////////////////////
 module signed_calc_v
   (
-     input  unsigned [3:0] i_as ,
-     input  unsigned [3:0] i_bs ,
-     input  unsigned [3:0] i_cs ,
-     output unsigned [7:0] o_fs 
+     input  signed [4:0] i_as ,
+     input  signed [4:0] i_bs ,
+     output signed [8:0] o_fs   // (15 * 6) = 90   (15 * 11) = 165 = 1 0101 1011   -90 - 165 = -225 = 11 0000 0001
    );
   
-  assign o_fs = (7 * i_as) - (3 * i_bs) + (6 * i_cs);
+  assign o_fs = (6 * i_as) - (11 * i_bs);
     
 endmodule 
 
