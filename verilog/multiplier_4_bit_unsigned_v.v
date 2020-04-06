@@ -12,7 +12,7 @@ module multiplier_4_bit_unsigned_v
    );
   
   // assign o_fu = (6 * i_au) - (11 * i_bu);
-  assign o_fu = 2;
+  assign o_fu = i_au * i_bu;
     
 endmodule 
 
