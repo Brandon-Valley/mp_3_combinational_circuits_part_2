@@ -4,9 +4,9 @@
 
 module multiplier_4_bit_unsigned_tb_v;
 
-  reg  signed [4:0] i_au ;
-  reg  signed [4:0] i_bu ;
-  wire signed [8:0] o_fu ;
+  reg  unsigned [3:0] i_au ;
+  reg  unsigned [3:0] i_bu ;
+  wire unsigned [7:0] o_fu ;
 
   
   reg [4:0] d_in = 5'b00000;
@@ -22,24 +22,24 @@ module multiplier_4_bit_unsigned_tb_v;
   //procedure statement
   initial begin
   
-  #1000 i_au  = 0;//5'b00000;
-        i_bu  = 0;//5'b00000;
+  #1000 i_au  = 0;  
+        i_bu  = 0;  
 
-  #1000 i_au  = -15;//5'b11111;
-        i_bu  = 15 ;//5'b01111;
+  #1000 i_au  = 15; 
+        i_bu  = 15 ;
 
-  #1000 i_au  = -15;//5'b11111;
-        i_bu  = 0  ;//5'b00000;
+  #1000 i_au  = 15; 
+        i_bu  = 0  ;
 
-  #1000 i_au  = 1;//5'b00010;
-        i_bu  = 3;//5'b00100;
+  #1000 i_au  = 5;  
+        i_bu  = 6;  
         
         
         
 
   // not executed
-  #1000 i_au  = 5'b00000;
-        i_bu  = 5'b00000;
+  #1000 i_au  = 0;
+        i_bu  = 0;
 
 
       // //                      |
