@@ -5,17 +5,10 @@
 // 7X-3Y+6Z
 module unsigned_calc_tb_v;
 
-
-  // reg  i_a    ;
-  // reg  i_b    ;
-  // reg  i_carry;
-  // wire o_s    ;
-  // wire o_carry;
-
   reg  unsigned [3:0] i_au ;
   reg  unsigned [3:0] i_bu ;
   reg  unsigned [3:0] i_cu ;
-  wire unsigned [7:0] o_fu ;
+  wire unsigned [8:0] o_fu ;
 
   
   reg [4:0] d_in = 5'b00000;
@@ -78,3 +71,23 @@ module unsigned_calc_tb_v;
     end
 
 endmodule
+
+
+
+
+
+
+
+// vsim -voptargs=+acc work.unsigned_calc_tb_v
+ 
+// add wave -position insertpoint    \
+// sim:/unsigned_calc_tb_v/i_au\
+// sim:/unsigned_calc_tb_v/i_bu\
+// sim:/unsigned_calc_tb_v/i_cu\
+// sim:/unsigned_calc_tb_v/o_fu\
+// sim:/unsigned_calc_tb_v/duv/au_x_7 \
+// sim:/unsigned_calc_tb_v/duv/bu_x_neg_3 \
+// sim:/unsigned_calc_tb_v/duv/cu_x_6\
+// sim:/unsigned_calc_tb_v/duv/sum_7x_neg_3y_f
+
+// run -all
