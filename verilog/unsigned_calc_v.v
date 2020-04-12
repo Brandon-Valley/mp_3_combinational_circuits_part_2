@@ -61,6 +61,60 @@ module unsigned_calc_v
   wire sum_abc_co_4  ;
   wire sum_abc_co_5  ;
   
+
+  //=====================================================================================================
+  //  7X
+  //VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+  // 6X = 2X + 4X
+  wire unsigned [6:0] au_x_6; // biggest = 15 * 6 = 90 = 101 1010
+  wire sum_2x_4x_co_0;
+  wire sum_2x_4x_co_1;
+  wire sum_2x_4x_co_2;
+  wire sum_2x_4x_co_3;
+  wire sum_2x_4x_co_4;
+  wire sum_2x_4x_co_5;
+  wire unused_2;
+  
+  // 7X = X + 6X
+  wire unsigned [7:0] au_x_7;
+  wire sum_x_6x_co_0;
+  wire sum_x_6x_co_1;
+  wire sum_x_6x_co_2;
+  wire sum_x_6x_co_3;
+  wire sum_x_6x_co_4;
+  wire sum_x_6x_co_5;
+  wire sum_x_6x_co_6;
+  wire unused_3;
+  
+  // 6X = 2X + 4X              2X     +  4X
+  full_adder_v fa_6x_0      (1'b0     , 1'b0     , 1'b0          , au_x_6[0], sum_2x_4x_co_0);
+  full_adder_v fa_6x_1      (i_au[0]  , 1'b0     , sum_2x_4x_co_0, au_x_6[1], sum_2x_4x_co_1);
+  full_adder_v fa_6x_2      (i_au[1]  , i_au[0]  , sum_2x_4x_co_1, au_x_6[2], sum_2x_4x_co_2);
+  full_adder_v fa_6x_3      (i_au[2]  , i_au[1]  , sum_2x_4x_co_2, au_x_6[3], sum_2x_4x_co_3);
+  full_adder_v fa_6x_4      (i_au[3]  , i_au[2]  , sum_2x_4x_co_3, au_x_6[4], sum_2x_4x_co_4);
+  full_adder_v fa_6x_5      (1'b0     , i_au[3]  , sum_2x_4x_co_4, au_x_6[5], sum_2x_4x_co_5);
+  full_adder_v fa_6x_6      (1'b0     , 1'b0     , sum_2x_4x_co_5, au_x_6[6], unused_2      );
+  
+  // 7X = X + 6X              X     +   6X
+  full_adder_v fa_7x_0      (i_au[0]  , au_x_6[0], 1'b0          , au_x_7[0], sum_x_6x_co_0 );
+  full_adder_v fa_7x_1      (i_au[1]  , au_x_6[1], sum_x_6x_co_0 , au_x_7[1], sum_x_6x_co_1 );
+  full_adder_v fa_7x_2      (i_au[2]  , au_x_6[2], sum_x_6x_co_1 , au_x_7[2], sum_x_6x_co_2 );
+  full_adder_v fa_7x_3      (i_au[3]  , au_x_6[3], sum_x_6x_co_2 , au_x_7[3], sum_x_6x_co_3 );
+  full_adder_v fa_7x_4      (1'b0     , au_x_6[4], sum_x_6x_co_3 , au_x_7[4], sum_x_6x_co_4 );
+  full_adder_v fa_7x_5      (1'b0     , au_x_6[5], sum_x_6x_co_4 , au_x_7[5], sum_x_6x_co_5 );
+  full_adder_v fa_7x_6      (1'b0     , au_x_6[6], sum_x_6x_co_5 , au_x_7[6], sum_x_6x_co_6 );
+  full_adder_v fa_7x_7      (1'b0     , 1'b0     , sum_x_6x_co_6 , au_x_7[7], unused_3      );
+
+  //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  //  7X
+  //=====================================================================================================
+  
+  
+  
+  
+  //=====================================================================================================
+  //  -3Y
+  //VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
   // Y + 2Y = 3Y 
   wire unsigned [5:0] bu_x_3;     // biggest = 45 = 10 1101
   wire sum_y_2y_co_0;
@@ -81,10 +135,7 @@ module unsigned_calc_v
   wire sum_neg_3y_co_6;
   wire unused_1;
   
-  
-  // make -3Y
   // 2Y
-  // assign bu_x_2 = {i_bu, 1'b0};`````````````````````````````````````````````````````````
   
   // Y + 2Y = 3Y              Y              2Y
   full_adder_v fa_3y_0      (i_bu[0],      1'b0   , 1'b0         ,   bu_x_3[0],     sum_y_2y_co_0 );
@@ -103,9 +154,14 @@ module unsigned_calc_v
   full_adder_v fa_neg_3y_5  ( ~ bu_x_3[5], 1'b0,    sum_neg_3y_co_4, bu_x_neg_3[5], sum_neg_3y_co_5);
   full_adder_v fa_neg_3y_6  (   1'b1     , 1'b0,    sum_neg_3y_co_5, bu_x_neg_3[6], sum_neg_3y_co_6);
   full_adder_v fa_neg_3y_7  (   1'b1     , 1'b0,    sum_neg_3y_co_6, bu_x_neg_3[7], unused_1       );
+
+  //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  //  -3Y
+  //=====================================================================================================
   
   
-  // wire signed [
+  
+  
 
   
   // 7X-3Y                          VV subtract VV
