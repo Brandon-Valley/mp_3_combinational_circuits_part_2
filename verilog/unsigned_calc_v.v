@@ -162,6 +162,37 @@ module unsigned_calc_v
   
   
   
+  
+  //=====================================================================================================
+  //  6Z
+  //VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+  // 6X = 2X + 4X
+  wire unsigned [7:0] cu_x_6; 
+  wire sum_2z_4z_co_0;
+  wire sum_2z_4z_co_1;
+  wire sum_2z_4z_co_2;
+  wire sum_2z_4z_co_3;
+  wire sum_2z_4z_co_4;
+  wire sum_2z_4z_co_5;
+  wire sum_2z_4z_co_6;
+  wire unused_4;
+  
+
+  // 6Z = 2Z + 4Z              2Z     +  4Z
+  full_adder_v fa_6z_0      (1'b0     , 1'b0     , 1'b0          , cu_x_6[0], sum_2z_4z_co_0);
+  full_adder_v fa_6z_1      (i_cu[0]  , 1'b0     , sum_2z_4z_co_0, cu_x_6[1], sum_2z_4z_co_1);
+  full_adder_v fa_6z_2      (i_cu[1]  , i_cu[0]  , sum_2z_4z_co_1, cu_x_6[2], sum_2z_4z_co_2);
+  full_adder_v fa_6z_3      (i_cu[2]  , i_cu[1]  , sum_2z_4z_co_2, cu_x_6[3], sum_2z_4z_co_3);
+  full_adder_v fa_6z_4      (i_cu[3]  , i_cu[2]  , sum_2z_4z_co_3, cu_x_6[4], sum_2z_4z_co_4);
+  full_adder_v fa_6z_5      (1'b0     , i_cu[3]  , sum_2z_4z_co_4, cu_x_6[5], sum_2z_4z_co_5);
+  full_adder_v fa_6z_6      (1'b0     , 1'b0     , sum_2z_4z_co_5, cu_x_6[6], sum_2z_4z_co_6);
+  full_adder_v fa_6z_7      (1'b0     , 1'b0     , sum_2z_4z_co_6, cu_x_6[7], unused_4      );
+
+
+  //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  //  7Z
+  //=====================================================================================================
+  
 
   
   // 7X-3Y                          VV subtract VV
