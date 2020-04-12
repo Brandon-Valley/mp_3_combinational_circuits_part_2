@@ -49,6 +49,10 @@ module unsigned_calc_tb_v;
         i_bu  = 4'b0010;
         i_cu  = 4'b0100;  
         
+  #1000 i_au  = 4'b0000;
+        i_bu  = 4'b1111;
+        i_cu  = 4'b0000;  
+        
         
         
 
