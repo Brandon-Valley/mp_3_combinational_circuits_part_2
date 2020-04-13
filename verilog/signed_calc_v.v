@@ -35,7 +35,7 @@ module signed_calc_v
   //  6X
   //VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
   // 6X = 2X + 4X
-  wire unsigned [8:0] as6 ; 
+  wire signed [8:0] as6 ; 
   wire sum_6x_co_0;
   wire sum_6x_co_1;
   wire sum_6x_co_2;
@@ -70,7 +70,7 @@ module signed_calc_v
   //  -11Y
   //VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
   // 2Y + 8Y = 10Y 
-  wire unsigned [8:0] bs10;    
+  wire signed [8:0] bs10;    
   wire sum_10y_co_0;
   wire sum_10y_co_1;
   wire sum_10y_co_2;
@@ -82,7 +82,7 @@ module signed_calc_v
   wire unused_1;
   
   // Y + 10Y = 11Y
-  wire unsigned [8:0] bs11;    
+  wire signed [8:0] bs11;    
   wire sum_11y_co_0;
   wire sum_11y_co_1;
   wire sum_11y_co_2;
@@ -94,7 +94,7 @@ module signed_calc_v
   wire unused_2;
   
   // -11Y = 2's complement of 11Y
-  wire unsigned [8:0] bs_neg_11; // biggest = -45, but make 8 bit anyway
+  wire signed [8:0] bs_neg_11; // biggest = -45, but make 8 bit anyway
   wire sum_neg_11y_co_0;
   wire sum_neg_11y_co_1;
   wire sum_neg_11y_co_2;
@@ -173,7 +173,7 @@ module signed_calc_v
   full_adder_v fa_fs_5 (as6[5], bs_neg_11[5], sum_fs_co_4, o_fs[5], sum_fs_co_5);
   full_adder_v fa_fs_6 (as6[6], bs_neg_11[6], sum_fs_co_5, o_fs[6], sum_fs_co_6);
   full_adder_v fa_fs_7 (as6[7], bs_neg_11[7], sum_fs_co_6, o_fs[7], sum_fs_co_7);
-  full_adder_v fa_fs_8 (as6[8], bs_neg_11[7], sum_fs_co_7, o_fs[8], unused_4   );
+  full_adder_v fa_fs_8 (as6[8], bs_neg_11[8], sum_fs_co_7, o_fs[8], unused_4   );
 
 
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
