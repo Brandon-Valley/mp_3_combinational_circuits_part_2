@@ -8,7 +8,7 @@ module binary_4_bit_adder_v
   (
      input  unsigned [3:0] i_au ,
      input  unsigned [3:0] i_bu ,
-     output unsigned [4:0] o_fu 
+     output unsigned [4:0] o_fu   // o_fu[4] is carry out
    );
   
   assign o_fu = i_au + i_bu;
