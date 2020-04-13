@@ -4,9 +4,10 @@
 
 module multiplier_4_bit_unsigned_tb_v;
 
-  reg  unsigned [3:0] i_au ;
-  reg  unsigned [3:0] i_bu ;
-  wire unsigned [7:0] o_fu ;
+  reg  unsigned [3:0] i_au  ;
+  reg  unsigned [3:0] i_bu  ;
+  wire unsigned [3:0] o_fu0 ;
+  wire unsigned [3:0] o_fu1 ;
 
   
   reg [4:0] d_in = 5'b00000;
@@ -14,9 +15,10 @@ module multiplier_4_bit_unsigned_tb_v;
   
   // duv port map options:
   multiplier_4_bit_unsigned_v  duv (
-                            .i_au (i_au ),
-                            .i_bu (i_bu ),
-                            .o_fu (o_fu )
+                            .i_au  (i_au  ),
+                            .i_bu  (i_bu  ),
+                            .o_fu0 (o_fu0 ),
+                            .o_fu1 (o_fu1 )
   );
 
   //procedure statement
