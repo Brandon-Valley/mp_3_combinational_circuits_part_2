@@ -4,10 +4,10 @@
 
 module FMULS_tb_v;
 
-  reg  unsigned [7:0] i_rd  ;
-  reg  unsigned [7:0] i_rr  ;
-  wire unsigned [7:0] o_r1 ;
-  wire unsigned [7:0] o_r0 ;
+  reg  signed [7:0] i_rd  ;
+  reg  signed [7:0] i_rr  ;
+  wire signed [7:0] o_r1 ;
+  wire signed [7:0] o_r0 ;
 
   
   reg [4:0] d_in = 5'b00000;

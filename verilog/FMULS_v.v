@@ -6,13 +6,13 @@
 ////////////////////
 module FMULS_v
   (
-     input  unsigned [7:0] i_rd ,
-     input  unsigned [7:0] i_rr ,
-     output unsigned [7:0] o_r1, 
-     output unsigned [7:0] o_r0 
+     input  signed [7:0] i_rd ,
+     input  signed [7:0] i_rr ,
+     output signed [7:0] o_r1, 
+     output signed [7:0] o_r0 
    );
   
-  wire unsigned [15:0] r_i = i_rd * i_rr;
+  wire signed [15:0] r_i = i_rd * i_rr;
 
   assign o_r1 = r_i[14:7];
   assign o_r0 = {r_i[6:0], 1'b0};
