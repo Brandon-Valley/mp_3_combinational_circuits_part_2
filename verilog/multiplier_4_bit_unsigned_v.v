@@ -1,4 +1,4 @@
-// -- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__signed_calc_v.do
+// -- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__multiplier_4_bit_unsigned_v.do
 
 
 // ////////////////////
