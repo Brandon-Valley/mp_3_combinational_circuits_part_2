@@ -5,7 +5,7 @@
 module FMULSU_tb_v;
 
   reg  signed [7:0] i_rd  ;
-  reg  signed [7:0] i_rr  ;
+  reg  unsigned [7:0] i_rr  ;
   wire signed [7:0] o_r1 ;
   wire signed [7:0] o_r0 ;
 

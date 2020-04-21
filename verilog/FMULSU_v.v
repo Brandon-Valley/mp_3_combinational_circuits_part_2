@@ -7,7 +7,7 @@
 module FMULSU_v
   (
      input  signed [7:0] i_rd ,
-     input  signed [7:0] i_rr ,
+     input  unsigned [7:0] i_rr ,
      output signed [7:0] o_r1, 
      output signed [7:0] o_r0 
    );
