@@ -62,6 +62,6 @@ module three_input_gate_v
   NOT1_gate_v  not_1  (xnor_xor_f, xnor_f);
   
   // three_input_gate
-  MUX_4_1_v mux0 (1'b1, {xor_f, nand_f, nor_f, xnor_f}, i_code, o_f);
+  MUX_4_1_v mux0 (1'b1, {xnor_f, nor_f, nand_f, xor_f}, i_code, o_f);
 
 endmodule

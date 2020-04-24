@@ -24,6 +24,12 @@ module FMULS_tb_v;
   //procedure statement
   initial begin
   
+  #1000 i_rd  = 8'b10110100;   // -.6
+        i_rr  = 8'b10100111;   // -.7
+  
+  #1000 i_rd  = 8'b10110100;   // -.6
+        i_rr  = 8'b01011001;   //  .7
+  
   #1000 i_rd  = 8'b10000000;  
         i_rr  = 8'b10000000;  
                  
