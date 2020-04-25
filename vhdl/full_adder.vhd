@@ -33,20 +33,39 @@ architecture equation of full_adder is
 
 
 
--- ------------------------
--- -- Behavior Model
--- ------------------------
--- architecture behavior of full_adder is
-  -- begin
+------------------------
+-- Behavior Model
+------------------------
+architecture behavior of full_adder is
+  begin
   -- o_f <=      a xor b xor c  when i_code = "00" else
          -- not (a and b and c) when i_code = "01" else
          -- not (a or  b or  c) when i_code = "10" else
          -- ( not a  and   not b  and   not c)  or  ( not a  and  b  and  c)  or  (a  and   not b  and  c)  or  (a  and  b  and   not c);
          -- -- '1';
            
-  -- -- o_f <= a;
+  
+  
+  
+  o_s     <= '0' when  ( (not i_a = '1')  and  (not i_b = '1')  and  (not i_carry = '1') )   else
+             '1' when  ( (not i_a = '1')  and  (not i_b = '1')  and  (    i_carry = '1') )   else
+             '1' when  ( (not i_a = '1')  and  (    i_b = '1')  and  (not i_carry = '1') )   else
+             '0' when  ( (not i_a = '1')  and  (    i_b = '1')  and  (    i_carry = '1') )   else
+             '1' when  ( (    i_a = '1')  and  (not i_b = '1')  and  (not i_carry = '1') )   else
+             '0' when  ( (    i_a = '1')  and  (not i_b = '1')  and  (    i_carry = '1') )   else
+             '0' when  ( (    i_a = '1')  and  (    i_b = '1')  and  (not i_carry = '1') )   else
+             '1' when  ( (    i_a = '1')  and  (    i_b = '1')  and  (    i_carry = '1') )   else '0'; 
+   
+  o_carry <= '0' when not i_a = '1' and not i_b = '1'  and not i_carry = '1'  else
+             '0' when not i_a = '1' and not i_b = '1'  and     i_carry = '1'  else
+             '0' when not i_a = '1' and     i_b = '1'  and not i_carry = '1'  else
+             '1' when not i_a = '1' and     i_b = '1'  and     i_carry = '1'  else
+             '0' when     i_a = '1' and not i_b = '1'  and not i_carry = '1'  else
+             '1' when     i_a = '1' and not i_b = '1'  and     i_carry = '1'  else
+             '1' when     i_a = '1' and     i_b = '1'  and not i_carry = '1'  else
+             '1' when     i_a = '1' and     i_b = '1'  and     i_carry = '1'  else '0';
 
-  -- end architecture behavior;
+  end architecture behavior;
     
     
 
