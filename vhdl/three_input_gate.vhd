@@ -94,10 +94,6 @@ architecture cmpnt of three_input_gate is
   
        
   begin
-    -- MUX_0_i_code <= (f1_code(0), f0_code(0));
-    -- MUX_1_i_code <= (f1_code(1), f0_code(1));
-    -- not_f0_v     <= NOT f0_v;
-    -- pe21_i_code  <= (f1_v, f0_v);
   
     -- XOR3
     XOR4_0  : xor4_gate  port map ('0', a, b, c, xor_f);  

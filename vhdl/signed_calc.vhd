@@ -1,10 +1,10 @@
--- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__full_adder.do
+-- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__signed_calc.do
 
 library ieee;
 use ieee.std_logic_1164.all;
 
 
-entity full_adder is
+entity signed_calc is
   port ( 
          i_a     : in  std_logic;
          i_b     : in  std_logic;
@@ -12,14 +12,14 @@ entity full_adder is
          o_s     : out  std_logic;
          o_carry : out std_logic
        );
-end full_adder;
+end signed_calc;
 
 
 
 ------------------------
 -- Equation Model
 ------------------------
-architecture equation of full_adder is
+architecture equation of signed_calc is
   begin
            
   o_s     <= i_a xor i_b xor i_carry;
@@ -34,7 +34,7 @@ architecture equation of full_adder is
 ------------------------
 -- Behavior Model
 ------------------------
-architecture behavior of full_adder is
+architecture behavior of signed_calc is
   begin
 
   o_s     <= '0' when  ( (not i_a = '1')  and  (not i_b = '1')  and  (not i_carry = '1') )   else
@@ -63,7 +63,7 @@ architecture behavior of full_adder is
 ----------------------------
 -- Component Model
 ----------------------------
-architecture cmpnt of full_adder is
+architecture cmpnt of signed_calc is
 
   component half_adder is
   port ( 
