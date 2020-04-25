@@ -21,14 +21,13 @@ end full_adder;
 ------------------------
 architecture equation of full_adder is
   begin
-  -- o_f <=      a xor b xor c  when i_code = "00" else
-         -- not (a and b and c) when i_code = "01" else
-         -- not (a or  b or  c) when i_code = "10" else
-         -- ( not a  and   not b  and   not c)  or  ( not a  and  b  and  c)  or  (a  and   not b  and  c)  or  (a  and  b  and   not c);
-         -- '1';
            
-  o_s <= i_a;
-  o_carry <= i_b;
+  o_s     <= i_a xor i_b xor i_carry;
+  o_carry <= ((i_a xor i_b) and i_carry) or (i_a and i_b); 
+
+
+  -- o_s <= i_a;
+  -- o_carry <= i_b;
 
   end architecture equation;
 
@@ -106,8 +105,8 @@ architecture equation of full_adder is
   -- signal nor_or_f   : std_logic; -- OR4 output befor NOT output for NOR
   -- signal xnor_xor_f : std_logic; -- XOR outup befor NOT output for XNOR
   
-  -- -- signal mux_i_code : std_logic_vector(3 downto 0) := xor_f & nand_f & nor_or_f & xnor_xor_f;
-  -- signal mux_i_code : std_logic_vector(3 downto 0) := xnor_f & nor_f & nand_f & xor_f;
+  -- -- signal mux_i_code : std_logic_vector(3 downto 0) := xor_f and nand_f and nor_or_f and xnor_xor_f;
+  -- signal mux_i_code : std_logic_vector(3 downto 0) := xnor_f and nor_f and nand_f and xor_f;
 
   
        
@@ -128,7 +127,7 @@ architecture equation of full_adder is
     -- NOT1_2  : not1_gate  port map (xnor_xor_f, xnor_f);  
     
     -- -- full_adder
-    -- mux_i_code <= xnor_f & nor_f & nand_f & xor_f;
+    -- mux_i_code <= xnor_f and nor_f and nand_f and xor_f;
     -- MUX_4_1_0 : MUX_4_1  port map ('1', mux_i_code, i_code, o_f);    
 
   -- end architecture cmpnt;
