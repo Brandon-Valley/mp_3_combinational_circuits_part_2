@@ -26,9 +26,9 @@ architecture verify of signed_calc_tb is
 --                                    |
 --                                    |
 begin--                               V
-  -- duv: entity work.signed_calc(cmpnt) 
+  duv: entity work.signed_calc(cmpnt) 
   -- duv: entity work.signed_calc(equation) 
-  duv: entity work.signed_calc(behavior)
+  -- duv: entity work.signed_calc(behavior)
 
     -- UPDATE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     port map( 

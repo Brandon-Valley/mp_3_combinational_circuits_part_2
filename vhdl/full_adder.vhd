@@ -9,7 +9,7 @@ entity full_adder is
          i_a     : in  std_logic;
          i_b     : in  std_logic;
          i_carry : in  std_logic;
-         o_s     : out  std_logic;
+         o_s     : out std_logic;
          o_carry : out std_logic
        );
 end full_adder;
