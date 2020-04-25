@@ -44,7 +44,7 @@ module full_adder_v
   // assign o_s     = 
                    // 0  ?  ! (i_a & ! i_b & ! i_carry)  |
                    // 1  ?  ! (i_a & ! i_b &   i_carry)  |
-                   // 1  ?  ! (i_a &   i_b & ! i_carry)  |
+                   // 1  ?  ! (i_a &   i_b & ! i_carry)  | 
                    // 0  ?  ! (i_a &   i_b &   i_carry)  |
                    // 1  ?    (i_a & ! i_b & ! i_carry)  |
                    // 0  ?    (i_a & ! i_b &   i_carry)  |
