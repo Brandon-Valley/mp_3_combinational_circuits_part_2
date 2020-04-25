@@ -13,38 +13,13 @@ entity signed_calc is
        );
 end signed_calc;
 
-
-
-
-
-
 ------------------------
 -- Behavior Model
 ------------------------
 architecture behavior of signed_calc is
   begin
-
-
-  -- o_fs <= (6 * i_as) - (11 * i_bs);
-  o_fs <= "001000101";
   
-  -- o_s     <= '0' when  ( (not i_a = '1')  and  (not i_b = '1')  and  (not i_carry = '1') )   else
-             -- '1' when  ( (not i_a = '1')  and  (not i_b = '1')  and  (    i_carry = '1') )   else
-             -- '1' when  ( (not i_a = '1')  and  (    i_b = '1')  and  (not i_carry = '1') )   else
-             -- '0' when  ( (not i_a = '1')  and  (    i_b = '1')  and  (    i_carry = '1') )   else
-             -- '1' when  ( (    i_a = '1')  and  (not i_b = '1')  and  (not i_carry = '1') )   else
-             -- '0' when  ( (    i_a = '1')  and  (not i_b = '1')  and  (    i_carry = '1') )   else
-             -- '0' when  ( (    i_a = '1')  and  (    i_b = '1')  and  (not i_carry = '1') )   else
-             -- '1' when  ( (    i_a = '1')  and  (    i_b = '1')  and  (    i_carry = '1') )   else '0'; 
-   
-  -- o_carry <= '0' when not i_a = '1' and not i_b = '1'  and not i_carry = '1'  else
-             -- '0' when not i_a = '1' and not i_b = '1'  and     i_carry = '1'  else
-             -- '0' when not i_a = '1' and     i_b = '1'  and not i_carry = '1'  else
-             -- '1' when not i_a = '1' and     i_b = '1'  and     i_carry = '1'  else
-             -- '0' when     i_a = '1' and not i_b = '1'  and not i_carry = '1'  else
-             -- '1' when     i_a = '1' and not i_b = '1'  and     i_carry = '1'  else
-             -- '1' when     i_a = '1' and     i_b = '1'  and not i_carry = '1'  else
-             -- '1' when     i_a = '1' and     i_b = '1'  and     i_carry = '1'  else '0';
+  o_fs <= resize((6 * i_as) - (11 * i_bs), 9);
 
   end architecture behavior;
     

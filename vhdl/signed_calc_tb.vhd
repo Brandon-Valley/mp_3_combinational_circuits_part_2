@@ -50,9 +50,24 @@ begin--                               V
       wait for 1 ms;
 
       i_as <= to_signed(-15, 5);
-      i_bs <= to_signed(-15, 5);
+      i_bs <= to_signed(15, 5);
       
       wait for 1 ms;
+      
+      i_as <= to_signed(-15, 5);
+      i_bs <= to_signed(0, 5);
+      
+      wait for 1 ms;      
+      
+      i_as <= to_signed(1, 5);
+      i_bs <= to_signed(3, 5);
+      
+      wait for 1 ms;      
+      
+      i_as <= to_signed(15, 5);
+      i_bs <= to_signed(-15, 5);
+      
+      wait for 1 ms;           
       
       -- i_as <= to_signed(-15);
       -- i_bs <= to_signed(-15);
