@@ -57,7 +57,7 @@ module three_input_gate_v
   OR4_gate_v   or_0   (a, b, c, 1'b0, nor_or_f);
   NOT1_gate_v  not_0  (nor_or_f, nor_f);
   
-  // XNOR
+  // XNOR3
   XOR4_gate_v  xor_1  (a, b, c, 1'b0, xnor_xor_f);
   NOT1_gate_v  not_1  (xnor_xor_f, xnor_f);
   

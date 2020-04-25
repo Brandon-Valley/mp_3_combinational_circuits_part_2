@@ -34,61 +34,90 @@ architecture behavior of three_input_gate is
     
 
 
--- ----------------------------
--- -- Component Model
--- ----------------------------
--- architecture cmpnt of three_input_gate is
+----------------------------
+-- Component Model
+----------------------------
+architecture cmpnt of three_input_gate is
 
-  -- component priority_enc_4_2 is
-  -- port ( 
-           -- i_code : in  std_logic_vector(3 downto 0);
-           -- o_code : out std_logic_vector(1 downto 0);
-           -- o_valid: out std_logic);
-  -- end component priority_enc_4_2;
-
-  -- component MUX_2_1 is
-  -- port ( 
-         -- i_code : in  std_logic_vector(1 downto 0);
-         -- i_sel  : in  std_logic;
-         -- o_f    : out std_logic);
-  -- end component MUX_2_1;
-    
-  -- component priority_enc_2_1 is
-  -- port ( 
-         -- i_code : in  std_logic_vector(1 downto 0);
-         -- o_f    : out std_logic);
-  -- end component priority_enc_2_1;
+  component nand4_gate is
+  port ( i_a : in  std_logic;
+         i_b : in  std_logic;
+         i_c : in  std_logic;
+         i_d : in  std_logic;
+         o_f : out std_logic);
+  end component nand4_gate;
+  
+  component or4_gate is
+  port ( i_a : in  std_logic;
+         i_b : in  std_logic;
+         i_c : in  std_logic;
+         i_d : in  std_logic;
+         o_f : out std_logic);
+  end component or4_gate;
+  
+  component xor4_gate is
+  port ( i_a : in  std_logic;
+         i_b : in  std_logic;
+         i_c : in  std_logic;
+         i_d : in  std_logic;
+         o_f : out std_logic);
+  end component xor4_gate;
+  
+  component not1_gate is
+  port ( i_a : in  std_logic;
+         o_f : out std_logic);
+  end component not1_gate;
+  
+  component MUX_4_1 is
+  port ( 
+        i_en       : in  std_logic;
+        i_code     : in  std_logic_vector(3 downto 0);
+        i_sel_code : in  std_logic_vector(1 downto 0);
+        o_f        : out std_logic);
+         
+  end component MUX_4_1;
     
     
  
-  -- -- temp outs
-  -- signal f0_code : std_logic_vector(1 downto 0); 
-  -- signal f0_v    : std_logic; 
-  -- signal f1_code : std_logic_vector(1 downto 0); 
-  -- signal f1_v    : std_logic; 
+  -- temp outs
+  signal xor_f  : std_logic;
+  signal nand_f : std_logic;
+  signal nor_f  : std_logic;
+  signal xnor_f : std_logic;
   
-  -- -- signal not_f0_v     : std_logic := '1';
-  -- signal not_f0_v     : std_logic;
-  -- signal MUX_0_i_code : std_logic_vector(1 downto 0);
-  -- signal MUX_1_i_code : std_logic_vector(1 downto 0);
-  -- signal pe21_i_code  : std_logic_vector(1 downto 0);
+  signal nor_or_f   : std_logic; -- OR4 output befor NOT output for NOR
+  signal xnor_xor_f : std_logic; -- XOR outup befor NOT output for XNOR
+  
+  -- signal mux_i_code : std_logic_vector(3 downto 0) := xor_f & nand_f & nor_or_f & xnor_xor_f;
+  signal mux_i_code : std_logic_vector(3 downto 0) := xnor_f & nor_f & nand_f & xor_f;
+
   
        
-  -- begin
+  begin
     -- MUX_0_i_code <= (f1_code(0), f0_code(0));
     -- MUX_1_i_code <= (f1_code(1), f0_code(1));
     -- not_f0_v     <= NOT f0_v;
     -- pe21_i_code  <= (f1_v, f0_v);
   
-    -- priorityenc420 : priority_enc_4_2 port map (i_code(3 downto 0), f0_code, f0_v);
-    -- priorityenc421 : priority_enc_4_2 port map (i_code(7 downto 4), f1_code, f1_v);
+    -- XOR3
+    XOR4_0  : xor4_gate  port map ('0', a, b, c, xor_f);  
     
+    -- NAND3
+    NAND4_0 : nand4_gate port map ('1', a, b, c, nand_f);       
+    
+    -- NOR3
+    OR4_1  : or4_gate  port map ('0', a, b, c, nor_or_f);    
+    NOT1_1  : not1_gate  port map (nor_or_f, nor_f);    
 
-    -- MUX210 : MUX_2_1 port map (MUX_0_i_code, not_f0_v, o_code(0));
-    -- MUX211 : MUX_2_1 port map (MUX_1_i_code, not_f0_v, o_code(1));
+    -- XNOR3            
+    XOR4_2  : xor4_gate  port map ('0', a, b, c, xnor_xor_f);
+    NOT1_2  : not1_gate  port map (xnor_xor_f, xnor_f);  
+    
+    -- three_input_gate
+    mux_i_code <= xnor_f & nor_f & nand_f & xor_f;
+    MUX_4_1_0 : MUX_4_1  port map ('1', mux_i_code, i_code, o_f);    
 
-    -- priority_enc210 : priority_enc_2_1 port map (pe21_i_code, o_code(2));
-    -- end architecture cmpnt;
+  end architecture cmpnt;
     
     
 

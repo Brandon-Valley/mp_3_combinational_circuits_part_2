@@ -24,8 +24,13 @@ architecture verify of three_input_gate_tb is
   signal input : std_logic_vector (4 downto 0) := "00000"; -- <-- UPDATE !!!!!!!!!!!!!!!!!!!!!
 
 
-begin
-  duv: entity work.three_input_gate(behavior) -- <-- UPDATE !!!!!!!!!!!!!!!!!!!!!
+
+--                                 UPDATE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+--                                    |
+--                                    |
+begin--                               V
+  duv: entity work.three_input_gate(cmpnt) 
+  -- duv: entity work.three_input_gate(behavior)
 
     port map( 
               a      => a     ,
