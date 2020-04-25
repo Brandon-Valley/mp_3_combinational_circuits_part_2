@@ -1,4 +1,4 @@
--- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__three_input_gate.do
+-- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__full_adder.do
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -6,10 +6,10 @@ use ieee.std_logic_unsigned.all;
 
 
 
-entity three_input_gate_tb is
-end entity three_input_gate_tb;
+entity full_adder_tb is
+end entity full_adder_tb;
 
-architecture verify of three_input_gate_tb is
+architecture verify of full_adder_tb is
   
   signal a      : std_logic;                   
   signal b      : std_logic;                   
@@ -27,8 +27,8 @@ architecture verify of three_input_gate_tb is
 --                                    |
 --                                    |
 begin--                               V
-  -- duv: entity work.three_input_gate(cmpnt) 
-  duv: entity work.three_input_gate(behavior)
+  -- duv: entity work.full_adder(cmpnt) 
+  duv: entity work.full_adder(behavior)
 
     port map( 
               a      => a     ,
