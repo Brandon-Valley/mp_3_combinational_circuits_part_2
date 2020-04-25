@@ -29,8 +29,8 @@ architecture verify of three_input_gate_tb is
 --                                    |
 --                                    |
 begin--                               V
-  duv: entity work.three_input_gate(cmpnt) 
-  -- duv: entity work.three_input_gate(behavior)
+  -- duv: entity work.three_input_gate(cmpnt) 
+  duv: entity work.three_input_gate(behavior)
 
     port map( 
               a      => a     ,

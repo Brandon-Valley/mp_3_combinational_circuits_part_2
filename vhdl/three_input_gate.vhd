@@ -23,7 +23,7 @@ architecture behavior of three_input_gate is
   begin
   o_f <=      a xor b xor c  when i_code = "00" else
          not (a and b and c) when i_code = "01" else
-         not (a or  b or  c) when i_code = "11" else
+         not (a or  b or  c) when i_code = "10" else
          ( not a  and   not b  and   not c)  or  ( not a  and  b  and  c)  or  (a  and   not b  and  c)  or  (a  and  b  and   not c);
          -- '1';
            
