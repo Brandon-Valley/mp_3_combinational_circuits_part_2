@@ -18,11 +18,23 @@ end FMUL;
 -- Behavior Model
 ------------------------
 architecture behavior of FMUL is
+  signal r_i : unsigned (15 downto 0) := "ZZZZZZZZZZZZZZZZ";
+  -- signal r_i : unsigned (15 downto 0) := i_rd * i_rr;
+
+
   begin
   
+  r_i <=  i_rd * i_rr;
+  
   -- o_fs <= resize((6 * i_as) - (11 * i_bs), 9);
-  o_r1 <= "00100101";
-  o_r0 <= "00100101";
+  -- o_r1 <= "00100101";
+  -- o_r0 <= "00100101";
+  
+  
+  -- signal r_i : unsigned (15 downto 0) := resize(i_rd * i_rr, 16);
+
+  o_r1 <= r_i(14 downto 7);
+  o_r0 <= r_i(6 downto 0) & '0';
 
   end architecture behavior;
     
