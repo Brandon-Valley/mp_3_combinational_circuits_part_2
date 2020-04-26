@@ -13,28 +13,30 @@ end entity FMUL_tb;
 
 architecture verify of FMUL_tb is
   
-  signal i_as : signed(4 downto 0);  
-  signal i_bs : signed(4 downto 0);  
-  signal o_fs : signed(8 downto 0);
+  signal i_rd : unsigned(7 downto 0);
+  signal i_rr : unsigned(7 downto 0);
+  signal o_r1 : unsigned(7 downto 0);
+  signal o_r0 : unsigned(7 downto 0);
+ 
 
   
   signal input : std_logic_vector (2 downto 0) := "000"; -- <-- UPDATE !!!!!!!!!!!!!!!!!!!!!
 
 
 
---                                 UPDATE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
---                                    |
---                                    |
-begin--                               V
-  duv: entity work.FMUL(cmpnt) 
-  -- duv: entity work.FMUL(equation) 
-  -- duv: entity work.FMUL(behavior)
+--                       UPDATE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+--                          |
+--                          |
+begin--                     V
+
+  duv: entity work.FMUL(behavior)
 
     -- UPDATE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     port map( 
-              i_as => i_as,
-              i_bs => i_bs,
-              o_fs => o_fs
+              i_rd => i_rd,
+              i_rr => i_rr,
+              o_r1 => o_r1,
+              o_r0 => o_r0
             );
 
   --                                # bits in input -- UPDATE!!!!!!!!!!!!!!!!!!!!!!
@@ -44,50 +46,55 @@ begin--                               V
       ( input_test : in std_logic_vector(2 downto 0)) is
     begin 
 
-      i_as <= to_signed(-15, 5);
-      i_bs <= to_signed(-15, 5);
-      
+
+      i_rd  <= "10000000";  
+      i_rr  <= "10000000";  
+      wait for 1 ms;
+                       
+      i_rd  <= "10000000" ; 
+      i_rr  <= "00000000" ;
+      wait for 1 ms;
+                       
+      i_rd  <= "01000000"; 
+      i_rr  <= "01000000";
+      wait for 1 ms;
+                       
+      i_rd  <= "00000001"; 
+      i_rr  <= "00000001";        
+      wait for 1 ms;
+                       
+      i_rd  <= "01000000";  
+      i_rr  <= "11000000";
       wait for 1 ms;
 
-      i_as <= to_signed(-15, 5);
-      i_bs <= to_signed(15, 5);
-      
-      wait for 1 ms;
-      
-      i_as <= to_signed(-15, 5);
-      i_bs <= to_signed(0, 5);
-      
-      wait for 1 ms;      
-      
-      i_as <= to_signed(1, 5);
-      i_bs <= to_signed(3, 5);
-      
-      wait for 1 ms;      
-      
-      i_as <= to_signed(15, 5);
-      i_bs <= to_signed(-15, 5);
-      
-      wait for 1 ms;           
-      
-      -- i_as <= to_signed(-15);
-      -- i_bs <= to_signed(-15);
-      
-      -- wait for 1 ms;
-          
 
-      -- i_as <= to_signed(-15);
-      -- i_bs <= -15;
+
+
+
+      -- i_as <= to_signed(-15, 5);
+      -- i_bs <= to_signed(-15, 5);
       
       -- wait for 1 ms;
-      -- i_as <= -15;
-      -- i_bs <= -15;
+
+      -- i_as <= to_signed(-15, 5);
+      -- i_bs <= to_signed(15, 5);
       
       -- wait for 1 ms;
       
-      -- i_as <= -15;
-      -- i_bs <= -15;
+      -- i_as <= to_signed(-15, 5);
+      -- i_bs <= to_signed(0, 5);
       
       -- wait for 1 ms;      
+      
+      -- i_as <= to_signed(1, 5);
+      -- i_bs <= to_signed(3, 5);
+      
+      -- wait for 1 ms;      
+      
+      -- i_as <= to_signed(15, 5);
+      -- i_bs <= to_signed(-15, 5);
+      
+      -- wait for 1 ms;           
       
     end procedure apply_test;
     
