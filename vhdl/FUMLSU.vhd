@@ -20,9 +20,32 @@ end FMULSU;
 architecture behavior of FMULSU is
   -- signal r_i : signed (15 downto 0) := "ZZZZZZZZZZZZZZZZ";
 
+  signal rd_2s_comp : unsigned (7 downto 0) := "ZZZZZZZZ";
+
+  signal r_i : signed (15 downto 0) := "ZZZZZZZZZZZZZZZZ";
+                                    
+                                    
+  -- o_f <= '0' when (i_a = '1' and 
+                     -- i_b = '1' and 
+                     -- i_c = '1' and 
+                     -- i_d = '1')
+               -- else
+           -- '1';
 
 
   begin
+  
+  rd_2s_comp <= ( not i_rd) + "00000001";
+  
+  
+  -- signal r_i : signed (15 downto 0) := not i_rd(7) ? i_rd * i_rr :        -- if i_rd positive, just multiply like normal
+                                    -- 0 - (rd_2s_comp * i_rr);  -- else multiply by i_rd's 2's comp
+                                    
+  r_i <= i_rd * i_rr when not i_rd(7) -- if i_rd positive, just multiply like normal
+                     else resize("0000000000000000" - (rd_2s_comp * i_rr), 16);  -- else multiply by i_rd's 2's comp
+  
+  
+  
   
   -- r_i <=  i_rd * i_rr;
 

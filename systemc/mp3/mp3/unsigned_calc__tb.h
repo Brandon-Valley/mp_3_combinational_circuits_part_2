@@ -27,15 +27,15 @@ void unsigned_calc__tb()
     sc_signal <sc_uint<4>> i_au ;
     sc_signal <sc_uint<4>> i_bu ;
     sc_signal <sc_uint<4>> i_cu ;
-    sc_signal <sc_uint<8>> o_fu ;
+    sc_signal <sc_int<9>> o_fu ;
     
 
 
     //=============================//
     //  Select Which Model to Test
     //=============================//
-    //unsigned_calc__behavior DUT("unsigned_calc.h");
-    unsigned_calc__cmpnt DUT("unsigned_calc.h");
+    unsigned_calc__behavior DUT("unsigned_calc.h");
+    //unsigned_calc__cmpnt DUT("unsigned_calc.h");
 
 
     //=============================//
@@ -82,9 +82,45 @@ void unsigned_calc__tb()
 
 
     //    sc_start(10, SC_NS); // run sim for 10 ns
-    //}
+    ////}
 
 
+
+    //i_au.write(15);
+    //i_bu.write(15);
+    //i_cu.write(15);
+    //sc_start(10, SC_NS); // run sim for 10 ns
+
+    //i_au.write(15);
+    //i_bu.write(0);
+    //i_cu.write(15);
+    //sc_start(10, SC_NS); // run sim for 10 ns
+
+    //i_au.write(0);
+    //i_bu.write(0);
+    //i_cu.write(0);
+    //sc_start(10, SC_NS); // run sim for 10 ns
+
+    //i_au.write(1);
+    //i_bu.write(2);
+    //i_cu.write(3);
+    //sc_start(10, SC_NS); // run sim for 10 ns
+    //
+
+
+
+    //// last one does not show up in wave
+    //i_au.write(0);
+    //i_bu.write(0);
+    //i_cu.write(0);
+    //sc_start(10, SC_NS); // run sim for 10 ns    //}
+
+
+
+    i_au.write(0);
+    i_bu.write(0);
+    i_cu.write(0);
+    sc_start(10, SC_NS); // run sim for 10 ns
 
     i_au.write(15);
     i_bu.write(15);
@@ -96,14 +132,14 @@ void unsigned_calc__tb()
     i_cu.write(15);
     sc_start(10, SC_NS); // run sim for 10 ns
 
-    i_au.write(0);
-    i_bu.write(0);
-    i_cu.write(0);
-    sc_start(10, SC_NS); // run sim for 10 ns
-
     i_au.write(1);
     i_bu.write(2);
     i_cu.write(3);
+    sc_start(10, SC_NS); // run sim for 10 ns
+
+    i_au.write(0);
+    i_bu.write(15);
+    i_cu.write(0);
     sc_start(10, SC_NS); // run sim for 10 ns
     
 
