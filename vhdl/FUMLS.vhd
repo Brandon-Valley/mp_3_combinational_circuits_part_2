@@ -1,23 +1,23 @@
--- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__FMUL.do
+-- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__FMULS.do
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 
-entity FMUL is
+entity FMULS is
   port ( 
          i_rd : in  unsigned(7 downto 0);
          i_rr : in  unsigned(7 downto 0);
          o_r1 : out unsigned(7 downto 0);
          o_r0 : out unsigned(7 downto 0)
        );
-end FMUL;
+end FMULS;
 
 ------------------------
 -- Behavior Model
 ------------------------
-architecture behavior of FMUL is
+architecture behavior of FMULS is
   signal r_i : unsigned (15 downto 0) := "ZZZZZZZZZZZZZZZZ";
 
 
