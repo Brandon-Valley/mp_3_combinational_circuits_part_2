@@ -14,7 +14,7 @@ end entity FMULSU_tb;
 architecture verify of FMULSU_tb is
   
   signal i_rd : signed(7 downto 0);
-  signal i_rr : signed(7 downto 0);
+  signal i_rr : unsigned(7 downto 0);
   signal o_r1 : signed(7 downto 0);
   signal o_r0 : signed(7 downto 0);
  
@@ -47,11 +47,6 @@ begin--                     V
     begin 
 
 
-      i_rd  <= "10110100";   -- -.6
-      i_rr  <= "10100111";   -- -.7
-      -- 0.011010011011
-      -- 0.412841796875
-      wait for 1 ms;
 
       i_rd  <= "10110100";   -- -.6
       i_rr  <= "01011001";   --  .7

@@ -8,7 +8,7 @@ use ieee.numeric_std.all;
 entity FMULSU is
   port ( 
          i_rd : in  signed(7 downto 0);
-         i_rr : in  signed(7 downto 0);
+         i_rr : in  unsigned(7 downto 0);
          o_r1 : out signed(7 downto 0);
          o_r0 : out signed(7 downto 0)
        );
@@ -18,17 +18,21 @@ end FMULSU;
 -- Behavior Model
 ------------------------
 architecture behavior of FMULSU is
-  signal r_i : signed (15 downto 0) := "ZZZZZZZZZZZZZZZZ";
+  -- signal r_i : signed (15 downto 0) := "ZZZZZZZZZZZZZZZZ";
 
 
 
   begin
   
-  r_i <=  i_rd * i_rr;
+  -- r_i <=  i_rd * i_rr;
 
 
-  o_r1 <= r_i(14 downto 7);
-  o_r0 <= r_i(6 downto 0) & '0';
+  -- o_r1 <= r_i(14 downto 7);
+  -- o_r0 <= r_i(6 downto 0) & '0';
+  
+  o_r1 <= "10010101";
+  o_r0 <= "10010101";
+
 
   end architecture behavior;
     
