@@ -7,10 +7,10 @@ use ieee.numeric_std.all;
 
 entity FMULS is
   port ( 
-         i_rd : in  unsigned(7 downto 0);
-         i_rr : in  unsigned(7 downto 0);
-         o_r1 : out unsigned(7 downto 0);
-         o_r0 : out unsigned(7 downto 0)
+         i_rd : in  signed(7 downto 0);
+         i_rr : in  signed(7 downto 0);
+         o_r1 : out signed(7 downto 0);
+         o_r0 : out signed(7 downto 0)
        );
 end FMULS;
 
@@ -18,7 +18,7 @@ end FMULS;
 -- Behavior Model
 ------------------------
 architecture behavior of FMULS is
-  signal r_i : unsigned (15 downto 0) := "ZZZZZZZZZZZZZZZZ";
+  signal r_i : signed (15 downto 0) := "ZZZZZZZZZZZZZZZZ";
 
 
 

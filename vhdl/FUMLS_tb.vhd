@@ -13,10 +13,10 @@ end entity FMULS_tb;
 
 architecture verify of FMULS_tb is
   
-  signal i_rd : unsigned(7 downto 0);
-  signal i_rr : unsigned(7 downto 0);
-  signal o_r1 : unsigned(7 downto 0);
-  signal o_r0 : unsigned(7 downto 0);
+  signal i_rd : signed(7 downto 0);
+  signal i_rr : signed(7 downto 0);
+  signal o_r1 : signed(7 downto 0);
+  signal o_r0 : signed(7 downto 0);
  
 
   
@@ -47,14 +47,14 @@ begin--                     V
     begin 
 
 
-      i_rd  <= "01001100"; -- .6 
-      i_rr  <= "01011001"; -- .7 
+      i_rd  <= "10110100";   -- -.6
+      i_rr  <= "10100111";   -- -.7
       -- 0.011010011011
       -- 0.412841796875
       wait for 1 ms;
 
-      i_rd  <= "10000000";  
-      i_rr  <= "10000000";  
+      i_rd  <= "10110100";   -- -.6
+      i_rr  <= "01011001";   --  .7
       wait for 1 ms;
                        
       i_rd  <= "10000000" ; 
