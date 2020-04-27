@@ -35,14 +35,17 @@ architecture behavior of FMULSU is
 
   begin
   
-  rd_2s_comp <= ( not i_rd) + "00000001";
+  -- rd_2s_comp <= ( not i_rd) + "00000001";
+  -- rd_2s_comp <= ( not i_rd) + to_unsigned(1, rd_2s_comp'length) ;
+  rd_2s_comp <= unsigned( not i_rd) + to_unsigned(1, rd_2s_comp'length) ;
   
   
   -- signal r_i : signed (15 downto 0) := not i_rd(7) ? i_rd * i_rr :        -- if i_rd positive, just multiply like normal
                                     -- 0 - (rd_2s_comp * i_rr);  -- else multiply by i_rd's 2's comp
                                     
-  r_i <= i_rd * i_rr when not i_rd(7) -- if i_rd positive, just multiply like normal
-                     else resize("0000000000000000" - (rd_2s_comp * i_rr), 16);  -- else multiply by i_rd's 2's comp
+  r_i <= i_rd * signed(i_rr) when not i_rd(7) = '1' -- if i_rd positive, just multiply like normal
+                     else resize((to_signed(0, 16) - signed(rd_2s_comp * i_rr)), 16);  -- else multiply by i_rd's 2's comp
+                     -- else resize("0000000000000000" - (rd_2s_comp * i_rr), 16);  -- else multiply by i_rd's 2's comp
   
   
   
@@ -50,11 +53,11 @@ architecture behavior of FMULSU is
   -- r_i <=  i_rd * i_rr;
 
 
-  -- o_r1 <= r_i(14 downto 7);
-  -- o_r0 <= r_i(6 downto 0) & '0';
+  o_r1 <= r_i(14 downto 7);
+  o_r0 <= r_i(6 downto 0) & '0';
   
-  o_r1 <= "10010101";
-  o_r0 <= "10010101";
+  -- o_r1 <= ;
+  -- o_r0 <= "10010101";
 
 
   end architecture behavior;

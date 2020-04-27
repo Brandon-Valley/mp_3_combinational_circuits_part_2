@@ -7,6 +7,50 @@ using namespace std;
 
 
 ////////////////////////////////////////////////
+//  Equation Model - just for unsigned calc use
+////////////////////////////////////////////////
+SC_MODULE(full_adder) 
+{
+    //  Define IO Ports
+    sc_in  <sc_signal<bool>> i_a ;
+    sc_in  <sc_signal<bool>> i_b ;
+    sc_in  <sc_signal<bool>> i_ci;
+    sc_out <sc_signal<bool>> o_co;
+    sc_out <sc_signal<bool>> o_s ;
+
+
+    // Architecture Statement - Similar to Process Statement
+    void p1()
+    {
+        o_s.write((i_a.read() ^ i_b.read()) ^ i_ci.read());
+        o_co.write((i_a.read() & i_b.read()) | ((i_a.read() ^ i_b.read()) & i_ci.read()));
+    }
+
+
+    // Constructor
+    SC_CTOR(full_adder) 
+    {
+        SC_METHOD(p1);
+
+        //  Input Sensitivity List
+        sensitive << i_a 
+                  << i_b 
+                  << i_ci
+                  ;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////
 //  Equation Model
 ////////////////////////////////////////////////
 SC_MODULE(full_adder__equation) 
