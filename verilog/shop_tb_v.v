@@ -7,7 +7,7 @@ module shop_tb_v;
   reg        a     ;
   reg        b     ;
   reg        c     ;
-  reg  [23:0] i_code;
+  reg  unsigned [23:0] i_code;
   wire [23:0] o_f   ;
   
   reg [4:0] d_in = 5'b00000;
@@ -35,8 +35,11 @@ module shop_tb_v;
   c = 1'b1;
   
   #1000 i_code  = 24'h434241;
-  #1000 i_code  = 24'h434242;
-  #1000 i_code  = 24'h434243;
+  #1000 i_code  = 24'h7a6167;
+  #1000 i_code  = " hi";
+  #1000 i_code  = "Tes";
+  #1000 i_code  = "hi";
+  #1000 i_code  = 66;
   #1000 i_code  = 24'h434244;  
   
 

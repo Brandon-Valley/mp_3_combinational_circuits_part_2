@@ -55,6 +55,18 @@ SC_MODULE(unsigned_calc__cmpnt)
     sc_in  <sc_uint<4>> i_cu ;
     sc_out <sc_int<9>>  o_fu ; 
 
+    //o_fu = ( 7 * i_au.read() ) - ( 3 * i_bu.read() ) + (6 * i_cu.read() );
+    sc_signal <sc_uint<8>>  bu_x_neg_3; // biggest = -45, but make 8 bit anyway
+    sc_signal <sc_uint<8>>  au_x_7; // biggest = -45, but make 8 bit anyway
+    sc_signal <sc_uint <8>> sum_7x_neg_3y_f; 
+    sc_signal <bool> sum_7x_neg_3y_f_0; 
+    bool sum_7x_neg_3y_co_0;
+    bool test_bool = false;
+    sc_uint<4> test_out;
+    bool co0;
+
+    //au_x_7 = "111111111";
+    //bu_x_neg_3 = "111111111";
 
     //////  Component Instances
     //half_adder ha_1;
@@ -82,18 +94,14 @@ SC_MODULE(unsigned_calc__cmpnt)
    // Architecture Statement - Similar to Process Statement
     void p1()
     {
-        //o_fu = ( 7 * i_au.read() ) - ( 3 * i_bu.read() ) + (6 * i_cu.read() );
-        sc_signal <sc_lv<8>>  bu_x_neg_3; // biggest = -45, but make 8 bit anyway
-        sc_signal <sc_lv<8>>  au_x_7; // biggest = -45, but make 8 bit anyway
-        sc_signal <sc_lv <8>> sum_7x_neg_3y_f; 
-        sc_signal <bool> sum_7x_neg_3y_co_0;
-
-        au_x_7 = "111111111";
-        bu_x_neg_3 = "111111111";
-
-       sc_signal <bool> sumr = fulladder(au_x_7.read()[0].to_bool(), bu_x_neg_3.read()[0].to_bool(), false      , &sum_7x_neg_3y_f[0]);
 
 
+       //sc_signal <bool> sumr = fulladder(au_x_7.read()[0].to_bool(), bu_x_neg_3.read()[0].to_bool(), false      , &sum_7x_neg_3y_f_0);
+       //sc_signal <bool> sumr = fulladder(au_x_7.read()[0], bu_x_neg_3.read()[0], false      , sum_7x_neg_3y_f_0);
+       //sc_signal <bool> sumr = fulladder(i_au.read()[0], i_bu.read()[0], test_bool      , sum_7x_neg_3y_f_0);
+       //test_out[0] = fulladder(i_au.read()[0], i_bu.read()[0], test_bool      , sum_7x_neg_3y_f_0);
+       test_out[0] = fulladder(i_au.read()[0], i_bu.read()[0], test_bool      , co0);
+       //o_fu[0] = fulladder(i_au.read()[0], i_bu.read()[0], test_bool      , sum_7x_neg_3y_f_0);
 
 
     }

@@ -10,11 +10,20 @@ module shop_v
     input        a     ,
     input        b     ,
     input        c     ,
-    input  [23:0] i_code,
+    input  unsigned [23:0] i_code,
     output [23:0] o_f
   );
   
+  // $monitor("t=%3d x=%d,y=%d,z=%d \n",$time,x,y,z, )
+  // $monitor("a=%d \n",a )
   assign o_f = i_code;
+  
+  // initial
+   // FIRST_BLOCK : begin
+     // $display ("This is first block");  
+   // end 
+  
+  
   
   
   // assign o_f = i_code == 00 ?    a ^ b ^ c    : 

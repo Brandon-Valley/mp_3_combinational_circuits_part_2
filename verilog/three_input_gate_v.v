@@ -1,10 +1,10 @@
-// -- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__shop_v.do
+// -- python C:\Users\Brandon\Documents\Personal_Projects\my_utils\modelsim_utils\auto_run.py -d run_cmd__three_input_gate_v.do
 
 // // ////////////////////////////////
 // // //  Behavior Model
 // // ////////////////////////////////
 
-// module shop_v
+// module three_input_gate_v
 
   // (
     // input        a     ,
@@ -24,7 +24,7 @@
 ////////////////////////////
  // Component Model - Uses MUX
 ////////////////////////////
-module shop_v
+module three_input_gate_v
 
   (
     input        a     ,
@@ -61,7 +61,7 @@ module shop_v
   XOR4_gate_v  xor_1  (a, b, c, 1'b0, xnor_xor_f);
   NOT1_gate_v  not_1  (xnor_xor_f, xnor_f);
   
-  // shop
+  // three_input_gate
   MUX_4_1_v mux0 (1'b1, {xnor_f, nor_f, nand_f, xor_f}, i_code, o_f);
 
 endmodule

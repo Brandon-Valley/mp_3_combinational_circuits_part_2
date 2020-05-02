@@ -23,7 +23,6 @@ architecture behavior of FMUL is
 
 
   begin
-  
   r_i <=  i_rd * i_rr;
 
 
