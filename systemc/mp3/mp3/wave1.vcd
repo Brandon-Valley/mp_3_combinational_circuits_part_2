@@ -1,5 +1,5 @@
 $date
-     May 12, 2020       01:35:11
+     May 12, 2020       01:49:49
 $end
 
 $version
@@ -26,32 +26,32 @@ $dumpvars
 b0 aaaaa
 b0 aaaab
 b0 aaaac
-b10001000 aaaad
+b1000000 aaaad
 $end
 
 #10000
 b1111 aaaaa
 b1111 aaaab
 b1111 aaaac
-b100111100 aaaad
+b101100 aaaad
 
 #20000
 b0 aaaab
-b10111100 aaaad
+b1011100 aaaad
 
 #30000
 b1 aaaaa
 b10 aaaab
 b11 aaaac
-b10001100 aaaad
+b100100 aaaad
 
 #40000
 b0 aaaaa
 b1111 aaaab
 b0 aaaac
-b100100000 aaaad
+b0 aaaad
 
 #50000
 b0 aaaab
-b10001000 aaaad
+b1000000 aaaad
 

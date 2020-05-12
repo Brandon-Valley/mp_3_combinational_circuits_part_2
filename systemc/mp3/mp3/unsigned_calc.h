@@ -321,8 +321,9 @@ SC_MODULE(unsigned_calc__cmpnt)
     //=====================================================================================================
     //  7X
     //VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+    cout << au_x_6__4 << sum_2x_4x_co_4 << endl;
 
-    full_adder(false                     , false                      , false          , au_x_6__0, sum_2x_4x_co_0);
+    full_adder (false                     , false                     , false         , au_x_6__0, sum_2x_4x_co_0);
     full_adder (i_au.read()[0].to_bool()  , false                     , sum_2x_4x_co_0, au_x_6__1, sum_2x_4x_co_1);
     full_adder (i_au.read()[1].to_bool()  , i_au.read()[0].to_bool()  , sum_2x_4x_co_1, au_x_6__2, sum_2x_4x_co_2);
     full_adder (i_au.read()[2].to_bool()  , i_au.read()[1].to_bool()  , sum_2x_4x_co_2, au_x_6__3, sum_2x_4x_co_3);
@@ -330,6 +331,8 @@ SC_MODULE(unsigned_calc__cmpnt)
     full_adder (false                     , i_au.read()[3].to_bool()  , sum_2x_4x_co_4, au_x_6__5, sum_2x_4x_co_5);
     full_adder (false                     , false                     , sum_2x_4x_co_5, au_x_6__6, unused_2      );
   
+    cout << au_x_6__4 << sum_2x_4x_co_4 << endl;
+
     // 7X = X + 6X          X     +   6X
     full_adder (i_au.read()[0].to_bool()  , au_x_6__0, false         , au_x_7__0, sum_x_6x_co_0 );
     full_adder (i_au.read()[1].to_bool()  , au_x_6__1, sum_x_6x_co_0 , au_x_7__1, sum_x_6x_co_1 );
@@ -360,14 +363,14 @@ SC_MODULE(unsigned_calc__cmpnt)
     full_adder (false                   ,      false                   , sum_y_2y_co_4,   bu_x_3__5,     unused_0      );
   
     // -3Y = 2's complement of 3Y
-    full_adder ( ! bu_x_3__0, true,    false          , bu_x_neg_3__0, sum_neg_3y_co_0);
-    full_adder ( ! bu_x_3__1, true,    sum_neg_3y_co_0, bu_x_neg_3__1, sum_neg_3y_co_1);
-    full_adder ( ! bu_x_3__2, true,    sum_neg_3y_co_1, bu_x_neg_3__2, sum_neg_3y_co_2);
-    full_adder ( ! bu_x_3__3, true,    sum_neg_3y_co_2, bu_x_neg_3__3, sum_neg_3y_co_3);
-    full_adder ( ! bu_x_3__4, true,    sum_neg_3y_co_3, bu_x_neg_3__4, sum_neg_3y_co_4);
-    full_adder ( ! bu_x_3__5, true,    sum_neg_3y_co_4, bu_x_neg_3__5, sum_neg_3y_co_5);
-    full_adder (   true     , true,    sum_neg_3y_co_5, bu_x_neg_3__6, sum_neg_3y_co_6);
-    full_adder (   true     , true,    sum_neg_3y_co_6, bu_x_neg_3__7, unused_1       );
+    full_adder ( ! bu_x_3__0, true ,    false          , bu_x_neg_3__0, sum_neg_3y_co_0);
+    full_adder ( ! bu_x_3__1, false,    sum_neg_3y_co_0, bu_x_neg_3__1, sum_neg_3y_co_1);
+    full_adder ( ! bu_x_3__2, false,    sum_neg_3y_co_1, bu_x_neg_3__2, sum_neg_3y_co_2);
+    full_adder ( ! bu_x_3__3, false,    sum_neg_3y_co_2, bu_x_neg_3__3, sum_neg_3y_co_3);
+    full_adder ( ! bu_x_3__4, false,    sum_neg_3y_co_3, bu_x_neg_3__4, sum_neg_3y_co_4);
+    full_adder ( ! bu_x_3__5, false,    sum_neg_3y_co_4, bu_x_neg_3__5, sum_neg_3y_co_5);
+    full_adder (   true     , false,    sum_neg_3y_co_5, bu_x_neg_3__6, sum_neg_3y_co_6);
+    full_adder (   true     , false,    sum_neg_3y_co_6, bu_x_neg_3__7, unused_1       );
 
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     //  -3Y
@@ -433,18 +436,6 @@ SC_MODULE(unsigned_calc__cmpnt)
     //=====================================================================================================
     
 
-    //o_fu <= {
-    //            o_fu__0,
-    //            o_fu__1,
-    //            o_fu__2,
-    //            o_fu__3,
-    //            o_fu__4,
-    //            o_fu__5,
-    //            o_fu__6,
-    //            o_fu__7,
-    //            o_fu__8
-
-    //}
 
     //o_fu[0] = o_fu__0;
 
