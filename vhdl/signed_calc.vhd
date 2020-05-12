@@ -24,19 +24,8 @@ architecture behavior of signed_calc is
   end architecture behavior;
     
     
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    
 ----------------------------
 -- Component Model
 ----------------------------

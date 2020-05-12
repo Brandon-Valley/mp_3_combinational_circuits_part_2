@@ -27,8 +27,8 @@ architecture verify of full_adder_tb is
 --                                    |
 --                                    |
 begin--                               V
-  duv: entity work.full_adder(cmpnt) 
-  -- duv: entity work.full_adder(equation) 
+  -- duv: entity work.full_adder(cmpnt) 
+  duv: entity work.full_adder(equation) 
   -- duv: entity work.full_adder(behavior)
 
     -- UPDATE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
