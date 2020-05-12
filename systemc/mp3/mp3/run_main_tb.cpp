@@ -6,8 +6,8 @@
 
 int sc_main(int argc, char* argv[])
 {
-    full_adder__tb();
-    //unsigned_calc__tb();
+    //full_adder__tb();
+    unsigned_calc__tb();
 
     return 0;
 }

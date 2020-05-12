@@ -1,5 +1,3 @@
 ﻿  run_main_tb.cpp
   Unknown compiler version - please run the configure tests and report the results
-C:\Users\Brandon\Documents\CpE_5220_Digital_Systems_Modeling\mp_3_combinational_circuits_part_2\hdl\systemc\mp3\mp3\unsigned_calc__tb.h(14,7): error C2059: syntax error: 'using namespace'
-C:\Users\Brandon\Documents\CpE_5220_Digital_Systems_Modeling\mp_3_combinational_circuits_part_2\hdl\systemc\mp3\mp3\unsigned_calc__tb.h(14,20): error C2238: unexpected token(s) preceding ';'
-C:\Users\Brandon\Documents\CpE_5220_Digital_Systems_Modeling\mp_3_combinational_circuits_part_2\hdl\systemc\mp3\mp3\unsigned_calc.h(51): fatal error C1075: '{': no matching token found
+  mp3.vcxproj -> C:\Users\Brandon\Documents\CpE_5220_Digital_Systems_Modeling\mp_3_combinational_circuits_part_2\hdl\systemc\mp3\Debug\mp3.exe
