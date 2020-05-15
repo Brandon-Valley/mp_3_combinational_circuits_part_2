@@ -302,12 +302,15 @@ SC_MODULE(unsigned_calc__cmpnt)
     //    return sumr, cof;
     //}
 
-    void full_adder(bool a, bool b, bool cif, bool& cof, bool& sumr)
+    void full_adder(bool a, bool b, bool cif, bool& sumr, bool& cof)
     {
+        cout << "fulladder in:  a: " << a << "  b: " << b << "  cif: " << cif << endl;
         //bool sumr;
         sumr = (a ^b) ^ cif;
         cof = (a&b) | ((a ^ b) & cif);
         //return sumr, cof;
+
+        cout << "output:                           cof: " << cof << "  sumr: " << sumr << endl;
     }
 
    // Architecture Statement - Similar to Process Statement
@@ -331,7 +334,22 @@ SC_MODULE(unsigned_calc__cmpnt)
     full_adder (false                     , i_au.read()[3].to_bool()  , sum_2x_4x_co_4, au_x_6__5, sum_2x_4x_co_5);
     full_adder (false                     , false                     , sum_2x_4x_co_5, au_x_6__6, unused_2      );
   
-    cout << au_x_6__4 << sum_2x_4x_co_4 << endl;
+    cout << "au_x_6__0: " << au_x_6__0 << endl;
+    cout << "au_x_6__1: " << au_x_6__1 << endl;
+    cout << "au_x_6__2: " << au_x_6__2 << endl;
+    cout << "au_x_6__3: " << au_x_6__3 << endl;
+    cout << "au_x_6__4: " << au_x_6__4 << endl;
+    cout << "au_x_6__5: " << au_x_6__5 << endl;
+    cout << "au_x_6__6: " << au_x_6__6 << endl;
+    cout << endl;
+    cout << "sum_2x_4x_co_0: " <<sum_2x_4x_co_0 << endl;
+    cout << "sum_2x_4x_co_1: " <<sum_2x_4x_co_1 << endl;
+    cout << "sum_2x_4x_co_2: " <<sum_2x_4x_co_2 << endl;
+    cout << "sum_2x_4x_co_3: " <<sum_2x_4x_co_3 << endl;
+    cout << "sum_2x_4x_co_4: " <<sum_2x_4x_co_4 << endl;
+    cout << "sum_2x_4x_co_5: " <<sum_2x_4x_co_5 << endl;
+
+    cout << "---------------------------------------------------------------------------------" << endl;
 
     // 7X = X + 6X          X     +   6X
     full_adder (i_au.read()[0].to_bool()  , au_x_6__0, false         , au_x_7__0, sum_x_6x_co_0 );
